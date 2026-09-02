@@ -1,6 +1,178 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box
+:root {
+  --bg-primary: #f1f5f9;       /* Fundo ligeiramente mais escuro para destacar o card branco */
+  --bg-card: #ffffff;          /* Card 100% branco no Light Mode */
+  --text-primary: #0f172a;     /* Texto principal bem escuro */
+  --text-secondary: #475569;   /* Subtítulos bem audíveis/visíveis */
+  --border-color: #cbd5e1;     /* Borda mais visível para marcar o contorno dos cards */
+  --card-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.08); /* Sombra elegante no Light */
+  --primary-color: #4f46e5;
+  --heart-active: #ef4444;
 }
 
+[data-theme="dark"] {
+  --bg-primary: #0f172a;
+  --bg-card: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border-color: #334155;
+  --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3); /* Sombra mais marcante no Dark */
+  --primary-color: #818cf8;
+  --heart-active: #ef4444;
+}
+
+/* Reset Global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+html, body, #root {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+}
+
+/* Header */
+.header {
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+.header h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.header h1 span {
+  color: var(--primary-color);
+}
+
+.btn-theme {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.55rem 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.btn-theme:hover {
+  border-color: var(--primary-color);
+}
+
+/* Container Principal */
+.container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+.sub-header {
+  margin-bottom: 2rem;
+}
+
+.sub-header h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.25rem;
+}
+
+.sub-header p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.sub-header strong {
+  color: var(--primary-color);
+}
+
+/* Grid de Filmes */
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Card do Filme com Contraste Ajustado */
+.movie-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--card-shadow);
+}
+
+.poster-box {
+  width: 100%;
+  height: 160px;
+  background-color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.8rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.movie-info {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.movie-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: var(--text-primary);
+}
+
+.movie-genre {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.2rem;
+}
+
+/* Botão de Favoritar */
+.btn-favorite {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.65rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.btn-favorite:hover {
+  border-color: var(--primary-color);
+}
+
+.btn-favorite.favorited {
+  border-color: var(--heart-active);
+  color: var(--heart-active);
+  background-color: rgba(239, 68, 68, 0.08);
+}
