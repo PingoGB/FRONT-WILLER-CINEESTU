@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback } from "react";
 import { Header } from "./components/Header";
 import { MovieCard } from "./components/MovieCard";
 import "./App.css";
+import Formulario from "./components/Formulario";
+import Listagem from "./components/Listagem";
 
 const FILMES_INICIAIS = [
   { id: 1, titulo: "Interstellar", genero: "Ficção Científica", emoji: "🚀", favorito: false },
